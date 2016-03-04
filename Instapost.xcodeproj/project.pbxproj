@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		91E2CDD81C892FA600BF701A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2CDD71C892FA600BF701A /* AppDelegate.swift */; };
+		91E2CDDA1C892FA600BF701A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2CDD91C892FA600BF701A /* ViewController.swift */; };
+		91E2CDDD1C892FA600BF701A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E2CDDB1C892FA600BF701A /* Main.storyboard */; };
+		91E2CDDF1C892FA600BF701A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E2CDDE1C892FA600BF701A /* Assets.xcassets */; };
+		91E2CDE21C892FA600BF701A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E2CDE01C892FA600BF701A /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		91E2CDD41C892FA600BF701A /* Instapost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instapost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91E2CDD71C892FA600BF701A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		91E2CDD91C892FA600BF701A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		91E2CDDC1C892FA600BF701A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		91E2CDDE1C892FA600BF701A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91E2CDE11C892FA600BF701A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		91E2CDE31C892FA600BF701A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		91E2CDD11C892FA600BF701A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		91E2CDCB1C892FA600BF701A = {
+			isa = PBXGroup;
+			children = (
+				91E2CDD61C892FA600BF701A /* Instapost */,
+				91E2CDD51C892FA600BF701A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		91E2CDD51C892FA600BF701A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91E2CDD41C892FA600BF701A /* Instapost.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		91E2CDD61C892FA600BF701A /* Instapost */ = {
+			isa = PBXGroup;
+			children = (
+				91E2CDD71C892FA600BF701A /* AppDelegate.swift */,
+				91E2CDD91C892FA600BF701A /* ViewController.swift */,
+				91E2CDDB1C892FA600BF701A /* Main.storyboard */,
+				91E2CDDE1C892FA600BF701A /* Assets.xcassets */,
+				91E2CDE01C892FA600BF701A /* LaunchScreen.storyboard */,
+				91E2CDE31C892FA600BF701A /* Info.plist */,
+			);
+			path = Instapost;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		91E2CDD31C892FA600BF701A /* Instapost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91E2CDE61C892FA600BF701A /* Build configuration list for PBXNativeTarget "Instapost" */;
+			buildPhases = (
+				91E2CDD01C892FA600BF701A /* Sources */,
+				91E2CDD11C892FA600BF701A /* Frameworks */,
+				91E2CDD21C892FA600BF701A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Instapost;
+			productName = Instapost;
+			productReference = 91E2CDD41C892FA600BF701A /* Instapost.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91E2CDCC1C892FA600BF701A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Dougli;
+				TargetAttributes = {
+					91E2CDD31C892FA600BF701A = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = FD8ZCG5BFR;
+					};
+				};
+			};
+			buildConfigurationList = 91E2CDCF1C892FA600BF701A /* Build configuration list for PBXProject "Instapost" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 91E2CDCB1C892FA600BF701A;
+			productRefGroup = 91E2CDD51C892FA600BF701A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				91E2CDD31C892FA600BF701A /* Instapost */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91E2CDD21C892FA600BF701A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91E2CDE21C892FA600BF701A /* LaunchScreen.storyboard in Resources */,
+				91E2CDDF1C892FA600BF701A /* Assets.xcassets in Resources */,
+				91E2CDDD1C892FA600BF701A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		91E2CDD01C892FA600BF701A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91E2CDDA1C892FA600BF701A /* ViewController.swift in Sources */,
+				91E2CDD81C892FA600BF701A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		91E2CDDB1C892FA600BF701A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91E2CDDC1C892FA600BF701A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		91E2CDE01C892FA600BF701A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91E2CDE11C892FA600BF701A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		91E2CDE41C892FA600BF701A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91E2CDE51C892FA600BF701A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		91E2CDE71C892FA600BF701A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Instapost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zhi.Instapost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		91E2CDE81C892FA600BF701A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Instapost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zhi.Instapost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		91E2CDCF1C892FA600BF701A /* Build configuration list for PBXProject "Instapost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91E2CDE41C892FA600BF701A /* Debug */,
+				91E2CDE51C892FA600BF701A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91E2CDE61C892FA600BF701A /* Build configuration list for PBXNativeTarget "Instapost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91E2CDE71C892FA600BF701A /* Debug */,
+				91E2CDE81C892FA600BF701A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91E2CDCC1C892FA600BF701A /* Project object */;
+}
