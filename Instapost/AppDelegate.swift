@@ -14,7 +14,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -29,6 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "http://cpuinstachat.herokuapp.com/parse"
             })
         )
+        if PFUser.currentUser() != nil {
+            print(PFUser.currentUser()?.username)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("MainVC")
+            window?.rootViewController = vc
+        }
+        
+        
         return true
     }
 
