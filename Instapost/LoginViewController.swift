@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var signUpButton: UIButton!
     
     
-    
+    var existingLoginOnStartup: Bool = false
     
     
 
@@ -25,6 +25,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(existingLoginOnStartup){
+            manualBypass()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,9 +48,6 @@ class LoginViewController: UIViewController {
                 self.performSegueWithIdentifier("loginSegue", sender: self)
             }
         }//end completion block
-        
-        
-        
     }
     
     @IBAction func onSignUp(sender: AnyObject) {
@@ -68,6 +71,19 @@ class LoginViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    func manualBypass(){
+        if PFUser.currentUser() != nil{
+            existingLoginOnStartup = false
+            self.performSegueWithIdentifier("loginSegue", sender: self)
+            //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            //let vc = story.instantiateViewControllerWithIdentifier("MainVC") as! MainViewController
+            
+            //let vc = story.instantiateViewControllerWithIdentifier("MainNav") as! UINavigationController
+            //presentViewController(main, animated: true, completion: nil)
+        }
+    
     }
     
     

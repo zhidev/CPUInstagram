@@ -29,10 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "http://cpuinstachat.herokuapp.com/parse"
             })
         )
+        print("Current user = \(PFUser.currentUser())")
         if PFUser.currentUser() != nil {
             print(PFUser.currentUser()?.username)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("MainVC")
-            window?.rootViewController = vc
+            //let vc = storyboard.instantiateViewControllerWithIdentifier("MainVC")
+            //window?.rootViewController = vc
+            let lvc = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //let mvc = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! MainViewController
+            window?.rootViewController = lvc
+            //let vc = storyboard.instantiateViewControllerWithIdentifier("LoginNav") as! UINavigationController
+            
+            //lvc.manualBypass(mvc)
+            lvc.existingLoginOnStartup = true
         }
         
         
