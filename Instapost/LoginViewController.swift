@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        existingLoginOnStartup = defaults.boolForKey("preload")
         if(existingLoginOnStartup){
             manualBypass()
         }
@@ -75,7 +77,6 @@ class LoginViewController: UIViewController {
     
     func manualBypass(){
         if PFUser.currentUser() != nil{
-            existingLoginOnStartup = false
             self.performSegueWithIdentifier("loginSegue", sender: self)
             //let storyboard = UIStoryboard(name: "Main", bundle: nil)
             //let vc = story.instantiateViewControllerWithIdentifier("MainVC") as! MainViewController

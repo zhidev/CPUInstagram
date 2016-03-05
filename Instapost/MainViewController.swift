@@ -33,6 +33,8 @@ class MainViewController: UIViewController {
     @IBAction func logoutPressed(sender: AnyObject) {
         PFUser.logOut()
         if PFUser.currentUser() == nil{
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(false, forKey: "preload")
             dismissViewControllerAnimated(true, completion: nil)
             print("Logged out")
         }

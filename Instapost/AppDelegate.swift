@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var storyboard = UIStoryboard(name: "Main", bundle: nil)
-
+    var preload = "preload"
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -34,13 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(PFUser.currentUser()?.username)
             //let vc = storyboard.instantiateViewControllerWithIdentifier("MainVC")
             //window?.rootViewController = vc
-            let lvc = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //let lvc = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             //let mvc = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! MainViewController
-            window?.rootViewController = lvc
-            //let vc = storyboard.instantiateViewControllerWithIdentifier("LoginNav") as! UINavigationController
-            
+            let vc = storyboard.instantiateViewControllerWithIdentifier("LoginNav") as! UINavigationController
+            window?.rootViewController = vc
+
             //lvc.manualBypass(mvc)
-            lvc.existingLoginOnStartup = true
+            //lvc.existingLoginOnStartup = true
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(true, forKey: preload)
+            defaults.synchronize()
+        
         }
         
         
