@@ -31,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "http://cpuinstachat.herokuapp.com/parse"
             })
         )
+        
+        /* First Tab Stuff */
+        //let vc = storyboard.instantiateViewControllerWithIdentifier("LoginNav") as! UINavigationController
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        window?.rootViewController = vc
+        
         print("Current user = \(PFUser.currentUser())")
         if PFUser.currentUser() != nil {
             print(PFUser.currentUser()?.username)
@@ -38,8 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //window?.rootViewController = vc
             //let lvc = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             //let mvc = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! MainViewController
-            let vc = storyboard.instantiateViewControllerWithIdentifier("LoginNav") as! UINavigationController
-            window?.rootViewController = vc
+
 
             //lvc.manualBypass(mvc)
             //lvc.existingLoginOnStartup = true
@@ -48,6 +53,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.synchronize()
         
         }
+        vc.tabBarItem.title = "Main"
+        
+        /* Second Tab Stuff(ImgPicker) */
+        //let ivc = storyboard.instantiateViewControllerWithIdentifier("ImageNav") as! UINavigationController
+        
+        
+        
+        /* Set tab bars */
+        /*let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [vc]
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()*/
         
         
         return true

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yd4-rM-FRr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -51,17 +51,17 @@
                         <outlet property="signInButton" destination="V1o-1r-NSo" id="cA8-jD-757"/>
                         <outlet property="signUpButton" destination="eb0-ug-X4g" id="8aE-GG-5Ca"/>
                         <outlet property="userTextfield" destination="HAg-Pv-tBV" id="E7R-LU-aNT"/>
-                        <segue destination="ajM-x0-92P" kind="presentation" identifier="loginSegue" id="moX-NP-WH0"/>
+                        <segue destination="2NB-V3-BNU" kind="presentation" identifier="loginSegue" id="hGV-vh-AO3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="958" y="361"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Main-->
         <scene sceneID="c4w-b9-F58">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="gGS-fm-wLf" customClass="MainViewController" customModule="Instapost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" title="Main" id="gGS-fm-wLf" customClass="MainViewController" customModule="Instapost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AoE-dv-cfn"/>
                         <viewControllerLayoutGuide type="bottom" id="Ayk-zw-Xpi"/>
@@ -81,6 +81,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.64284198010000004" green="0.70989557110000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Main" id="TOb-qH-DZh"/>
                     <navigationItem key="navigationItem" id="tMg-1z-IvP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -89,43 +90,93 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zvc-vs-1r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="361"/>
+            <point key="canvasLocation" x="2280" y="361"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wnj-aU-elz">
+        <!--Image-->
+        <scene sceneID="7Sn-Dk-YXR">
             <objects>
-                <navigationController storyboardIdentifier="LoginNav" automaticallyAdjustsScrollViewInsets="NO" id="yd4-rM-FRr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TDr-Mb-juH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController storyboardIdentifier="ImageVC" title="Image" id="R8c-mw-lra" customClass="ImageViewController" customModule="Instapost" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Imm-Dm-SbL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xby-ox-E9M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WpI-mq-GJr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0l-qn-bUC">
+                                <rect key="frame" x="27" y="374" width="93" height="30"/>
+                                <state key="normal" title="Search Photo"/>
+                                <connections>
+                                    <action selector="searchPhoto:" destination="R8c-mw-lra" eventType="touchDown" id="2Ie-DG-UAJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrb-4c-Ouw">
+                                <rect key="frame" x="200" y="374" width="77" height="30"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="R8c-mw-lra" eventType="touchDown" id="9Bd-0d-5fA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LC-bn-RMB">
+                                <rect key="frame" x="145" y="433" width="31" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postPhoto:" destination="R8c-mw-lra" eventType="touchDown" id="rBs-Vv-ZJx"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rLz-ec-o4X">
+                                <rect key="frame" x="27" y="28" width="273" height="241"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add a caption..." borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5a8-li-RyF">
+                                <rect key="frame" x="27" y="294" width="273" height="30"/>
+                                <color key="textColor" red="0.64284198010000004" green="0.70989557110000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSF-Bg-Fql">
+                                <rect key="frame" x="223" y="445" width="30" height="30"/>
+                                <state key="normal" title="Test"/>
+                                <connections>
+                                    <action selector="testTab:" destination="R8c-mw-lra" eventType="touchUpInside" id="T9B-nd-6Mj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80618298050000003" green="0.75904463379999998" blue="0.5480657202" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Post" id="nmg-7y-6Wl"/>
+                    <navigationItem key="navigationItem" id="1QZ-nj-i4g"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VMn-4K-j6I"/>
+                        <outlet property="captionText" destination="5a8-li-RyF" id="rKx-iJ-7fx"/>
+                        <outlet property="postButton" destination="3LC-bn-RMB" id="xZD-7L-lxp"/>
+                        <outlet property="searchButton" destination="s0l-qn-bUC" id="UII-OL-G4K"/>
+                        <outlet property="snapshot" destination="rLz-ec-o4X" id="jAV-Y8-guf"/>
+                        <outlet property="takeButton" destination="yrb-4c-Ouw" id="I3o-7c-T4a"/>
+                        <outlet property="testButton" destination="QSF-Bg-Fql" id="alu-Qo-eOg"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="17h-9t-2wM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpH-cu-tdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="361"/>
+            <point key="canvasLocation" x="1608" y="-297"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Hjs-z6-kqV">
+        <!--Tab Bar Controller-->
+        <scene sceneID="bHc-mi-b53">
             <objects>
-                <navigationController storyboardIdentifier="MainNav" automaticallyAdjustsScrollViewInsets="NO" id="ajM-x0-92P" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2NB-V3-BNU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMF-OM-MQC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="qFS-if-9TY">
                         <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="gGS-fm-wLf" kind="relationship" relationship="rootViewController" id="nWJ-u7-K48"/>
+                        <segue destination="gGS-fm-wLf" kind="relationship" relationship="viewControllers" id="w1A-iO-oGO"/>
+                        <segue destination="R8c-mw-lra" kind="relationship" relationship="viewControllers" id="gBR-Ib-xok"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w7O-MC-pv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Knc-of-Y1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="361"/>
+            <point key="canvasLocation" x="1608" y="361"/>
         </scene>
     </scenes>
 </document>
