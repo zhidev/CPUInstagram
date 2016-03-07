@@ -14,6 +14,7 @@
 		9153A66E1C8C6385008DB7F6 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153A66D1C8C6385008DB7F6 /* PhotoTableViewCell.swift */; };
 		9153A6701C8C740C008DB7F6 /* filteredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153A66F1C8C740C008DB7F6 /* filteredData.swift */; };
 		919432441C8D5025009555A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919432431C8D5024009555A5 /* ProfileViewController.swift */; };
+		9194324A1C8DBC19009555A5 /* setAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919432491C8DBC19009555A5 /* setAvatarImage.swift */; };
 		91E2CDD81C892FA600BF701A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E2CDD71C892FA600BF701A /* AppDelegate.swift */; };
 		91E2CDDD1C892FA600BF701A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E2CDDB1C892FA600BF701A /* Main.storyboard */; };
 		91E2CDDF1C892FA600BF701A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E2CDDE1C892FA600BF701A /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		9153A66D1C8C6385008DB7F6 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		9153A66F1C8C740C008DB7F6 /* filteredData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filteredData.swift; sourceTree = "<group>"; };
 		919432431C8D5024009555A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		919432491C8DBC19009555A5 /* setAvatarImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = setAvatarImage.swift; path = Assets.xcassets/setAvatarImage.swift; sourceTree = "<group>"; };
 		91E2CDD41C892FA600BF701A /* Instapost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instapost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E2CDD71C892FA600BF701A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91E2CDDC1C892FA600BF701A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				9153A66B1C8C5129008DB7F6 /* Post.swift */,
 				9153A66D1C8C6385008DB7F6 /* PhotoTableViewCell.swift */,
 				9153A66F1C8C740C008DB7F6 /* filteredData.swift */,
+				919432491C8DBC19009555A5 /* setAvatarImage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				9153A66E1C8C6385008DB7F6 /* PhotoTableViewCell.swift in Sources */,
 				9153A6701C8C740C008DB7F6 /* filteredData.swift in Sources */,
 				910FBB0F1C8B245300CB65E3 /* ImageViewController.swift in Sources */,
+				9194324A1C8DBC19009555A5 /* setAvatarImage.swift in Sources */,
 				91E2CDD81C892FA600BF701A /* AppDelegate.swift in Sources */,
 				919432441C8D5025009555A5 /* ProfileViewController.swift in Sources */,
 				9153A66C1C8C5129008DB7F6 /* Post.swift in Sources */,

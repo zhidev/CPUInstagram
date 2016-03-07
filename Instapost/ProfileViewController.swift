@@ -23,7 +23,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     var avatarImg: UIImage?
-    var profile: PFObject?
     var vc: UIImagePickerController?
     
     
@@ -44,7 +43,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
+    var profile: PFObject?{
+        didSet{
+            print("This should load?")
+            setAvatarImage.loadAvatar(profile!, toSetImage: self.avatar)
+            doesProfileExists = true
+        }
+    }
+
     
     
     override func viewDidLoad() {
@@ -65,8 +71,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         vc!.allowsEditing = true
         vc!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         profileExists(username!)
-        
+        setAvatarImage.loadProfile(username!, profileObjectToSet: profile)
+        /* Set this to true for now because too convulated. 
+            TODO: Set a notification to set these
+        */
+        /*createProfileButton.backgroundColor = UIColor.blackColor()
+        createProfileButton.enabled = true
+        //delete this, testing
+        updateProfileButton.backgroundColor = UIColor.blackColor()
+        updateProfileButton.enabled = true*/
     }
+    
     
     
     
@@ -115,6 +130,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func updateProfile(sender: AnyObject) {
+        print(profile)
     }
     
     func imagePickerController(picker: UIImagePickerController,
@@ -144,9 +160,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }
                 else if( results!.count == 1){
                     exists = true //profile does exist
-                    self.loadAvatar(results![0])//unwrap our shoul.d be only PFObject
+                    //self.loadAvatar(results![0])//unwrap our shoul.d be only PFObject
+                    //setAvatarImage.loadAvatar(results![0], toSetImage: self.avatar)
                     self.doesProfileExists = exists
-                    
+                    self.profile = results![0]
                 }else{
                     exists = false //profile doesnt exist
                     self.doesProfileExists = exists
@@ -156,7 +173,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     }
-
+/*
     func loadAvatar(object: PFObject){
         print("Starting loadAvatar")
         if let avatar = object.valueForKey("avatar")! as? PFFile{
@@ -168,6 +185,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("Finish stuff")
             })//end block
         }//end if let avatar
-    }//end func
+    }//end func*/
     
 }

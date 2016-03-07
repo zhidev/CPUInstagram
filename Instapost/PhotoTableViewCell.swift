@@ -19,6 +19,7 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet var likesLabel: UILabel!
     @IBOutlet var commentsLabel: UILabel!
     @IBOutlet var createdDate: UILabel!
+    @IBOutlet var avatar: UIImageView!
     
     
     
@@ -29,6 +30,7 @@ class PhotoTableViewCell: UITableViewCell {
     var object: PFObject?{
         didSet{
             print("HM?")
+            //setAvatarImage.loadAvatar(object!, toSetImage: avatar)
             singleData = filteredData(object: object!)
             singleData.cell = self //give it this cell to return image to
         }

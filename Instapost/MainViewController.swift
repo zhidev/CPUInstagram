@@ -19,6 +19,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var refreshControl: UIRefreshControl!
     
     
+    
+    
+    
+    
+    
     var data: [PFObject]?
     let HeaderViewIdentifier = "TableViewHeader"
     
@@ -73,6 +78,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print(object.createdAt)
             print("$$$$$$$$$$$$$$$$")
             cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
+            print(object)
             cell.object = object
         }
         let patternNumber = (indexPath.row % 5)
