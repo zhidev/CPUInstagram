@@ -19,7 +19,6 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var takeButton: UIButton!
     @IBOutlet var postButton: UIButton!
-    @IBOutlet var testButton: UIButton!
     
     var imageOrig: UIImage!
     
@@ -104,11 +103,7 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             MBProgressHUD.hideHUDForView(self.view, animated: false)
         }//end closure
     }
-    
-    @IBAction func testTab(sender: AnyObject) {
-        self.tabBarController?.selectedIndex = 0
-        print("Test")
-    }
+
     
     func finishPost(){
         self.tabBarController?.selectedIndex = 0
