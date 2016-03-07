@@ -28,6 +28,9 @@ The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
 - [x] Cells background are in order of UIColor.blackColor(), UIColor.purpleColor(), UIColor.blueColor(), UIColor.redColor(), UIColor.grayColor() alternating
+- [x] Automatically goes to tab controller after posting image, and automatically reloads table
+- [x] User can't take photo when camera is unavailable
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
