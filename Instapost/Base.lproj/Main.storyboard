@@ -205,7 +205,9 @@
                             <constraint firstItem="Ayk-zw-Xpi" firstAttribute="top" secondItem="nfb-Bt-RDb" secondAttribute="bottom" constant="10" id="xCk-T4-Mot"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Main" id="TOb-qH-DZh"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="Home" selectedImage="Home" id="TOb-qH-DZh">
+                        <inset key="imageInsets" minX="3" minY="5" maxX="5" maxY="5"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="tMg-1z-IvP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -278,7 +280,9 @@
                             <constraint firstItem="s0l-qn-bUC" firstAttribute="top" secondItem="5a8-li-RyF" secondAttribute="bottom" constant="50" id="fmL-g9-fg8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Post" id="nmg-7y-6Wl"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="Camera" id="nmg-7y-6Wl">
+                        <inset key="imageInsets" minX="4" minY="6" maxX="4" maxY="5"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="1QZ-nj-i4g"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -305,14 +309,40 @@
                     <connections>
                         <segue destination="gGS-fm-wLf" kind="relationship" relationship="viewControllers" id="w1A-iO-oGO"/>
                         <segue destination="R8c-mw-lra" kind="relationship" relationship="viewControllers" id="gBR-Ib-xok"/>
+                        <segue destination="irA-SI-dHl" kind="relationship" relationship="viewControllers" id="q3c-nb-hyO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knc-of-Y1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1608" y="361"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="5QE-dW-BcE">
+            <objects>
+                <viewController id="irA-SI-dHl" customClass="ProfileViewController" customModule="Instapost" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IyG-sZ-TLr"/>
+                        <viewControllerLayoutGuide type="bottom" id="D04-xz-QQH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9B3-28-q1s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="23a-Lg-ryn">
+                        <inset key="imageInsets" minX="3" minY="3" maxX="5" maxY="5"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOb-Rq-OH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608" y="1057"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Camera" width="50" height="50"/>
+        <image name="Home" width="50" height="50"/>
         <image name="LaunchBackground" width="1920" height="1080"/>
+        <image name="Profile" width="50" height="50"/>
     </resources>
 </document>
