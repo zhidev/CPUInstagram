@@ -101,7 +101,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="469"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="429" id="zd0-G1-Qxl" customClass="PhotoTableViewCell" customModule="Instapost" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="429" id="zd0-G1-Qxl" customClass="PhotoTableViewCell" customModule="Instapost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="429"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zd0-G1-Qxl" id="PEc-dh-jxd">
@@ -327,12 +327,27 @@
                     <view key="view" contentMode="scaleToFill" id="9B3-28-q1s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txm-4b-MNV">
+                                <rect key="frame" x="136" y="398" width="48" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogout:" destination="irA-SI-dHl" eventType="touchDown" id="STh-Ds-uuy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.73958777528084307" green="1" blue="0.75038838880577274" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="23a-Lg-ryn">
                         <inset key="imageInsets" minX="3" minY="3" maxX="5" maxY="5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="Txm-4b-MNV" id="H54-qx-DbX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOb-Rq-OH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
