@@ -328,8 +328,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txm-4b-MNV">
-                                <rect key="frame" x="136" y="398" width="48" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txm-4b-MNV">
+                                <rect key="frame" x="136" y="469" width="48" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,15 +338,89 @@
                                     <action selector="onLogout:" destination="irA-SI-dHl" eventType="touchDown" id="STh-Ds-uuy"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ef3-Sw-WOo">
+                                <rect key="frame" x="120" y="234" width="80" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="101-gn-xfV"/>
+                                    <constraint firstAttribute="height" constant="100" id="x3c-oB-c76"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-5z-AsH">
+                                <rect key="frame" x="119" y="193" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbp-Xh-iBq">
+                                <rect key="frame" x="31" y="384" width="94" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create Profile">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createProfile:" destination="irA-SI-dHl" eventType="touchDown" id="ofB-zC-njE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGi-ZE-2kK">
+                                <rect key="frame" x="190" y="384" width="99" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Update Profile">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateProfile:" destination="irA-SI-dHl" eventType="touchUpInside" id="KaP-pr-lCh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tri-ig-vMG">
+                                <rect key="frame" x="113" y="344" width="94" height="30"/>
+                                <color key="backgroundColor" red="0.57729617170000003" green="1" blue="0.125578264" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Upload Photo"/>
+                                <connections>
+                                    <action selector="uploadPhoto:" destination="irA-SI-dHl" eventType="touchDown" id="ru2-fK-ule"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sal-zC-Q7M">
+                                <rect key="frame" x="31" y="35" width="288" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="462-nN-GZ2"/>
+                                </constraints>
+                                <string key="text">Upload a photo to create a profile or change profile picture with the update profile button. Gray button = disabled. Black = enabled</string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.73958777528084307" green="1" blue="0.75038838880577274" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.60438223789078127" green="1" blue="0.29488136943246968" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ef3-Sw-WOo" firstAttribute="top" secondItem="AGa-5z-AsH" secondAttribute="bottom" constant="20" id="28A-fw-NmQ"/>
+                            <constraint firstItem="AGa-5z-AsH" firstAttribute="centerX" secondItem="9B3-28-q1s" secondAttribute="centerX" id="2Wr-G2-Nak"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RGi-ZE-2kK" secondAttribute="trailing" constant="15" id="5Rf-kD-7pf"/>
+                            <constraint firstItem="Tri-ig-vMG" firstAttribute="centerX" secondItem="9B3-28-q1s" secondAttribute="centerX" id="79O-Tz-16b"/>
+                            <constraint firstItem="Tri-ig-vMG" firstAttribute="top" secondItem="ef3-Sw-WOo" secondAttribute="bottom" constant="10" id="7dx-Kc-PVB"/>
+                            <constraint firstItem="D04-xz-QQH" firstAttribute="top" secondItem="Txm-4b-MNV" secondAttribute="bottom" constant="20" id="BRN-uZ-uej"/>
+                            <constraint firstItem="Sal-zC-Q7M" firstAttribute="top" secondItem="IyG-sZ-TLr" secondAttribute="bottom" priority="999" constant="15" id="Fn6-wo-GR1"/>
+                            <constraint firstItem="Fbp-Xh-iBq" firstAttribute="leading" secondItem="9B3-28-q1s" secondAttribute="leadingMargin" constant="15" id="G8W-6C-OT9"/>
+                            <constraint firstItem="Sal-zC-Q7M" firstAttribute="trailing" secondItem="9B3-28-q1s" secondAttribute="trailingMargin" constant="15" id="M01-oK-F0k"/>
+                            <constraint firstItem="Sal-zC-Q7M" firstAttribute="leading" secondItem="9B3-28-q1s" secondAttribute="leadingMargin" constant="15" id="WAw-xl-uaa"/>
+                            <constraint firstItem="RGi-ZE-2kK" firstAttribute="top" secondItem="ef3-Sw-WOo" secondAttribute="bottom" constant="50" id="WM3-BV-J4n"/>
+                            <constraint firstItem="Txm-4b-MNV" firstAttribute="centerX" secondItem="9B3-28-q1s" secondAttribute="centerX" id="aBh-rE-YDe"/>
+                            <constraint firstItem="Fbp-Xh-iBq" firstAttribute="top" secondItem="ef3-Sw-WOo" secondAttribute="bottom" constant="50" id="hLs-et-nte"/>
+                            <constraint firstItem="ef3-Sw-WOo" firstAttribute="centerY" secondItem="9B3-28-q1s" secondAttribute="centerY" id="kdm-Va-fqa"/>
+                            <constraint firstItem="ef3-Sw-WOo" firstAttribute="centerX" secondItem="9B3-28-q1s" secondAttribute="centerX" id="q4j-kk-lCf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="23a-Lg-ryn">
                         <inset key="imageInsets" minX="3" minY="3" maxX="5" maxY="5"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="avatar" destination="ef3-Sw-WOo" id="TKO-jc-joN"/>
+                        <outlet property="createProfileButton" destination="Fbp-Xh-iBq" id="PKp-tQ-Jyb"/>
                         <outlet property="logoutButton" destination="Txm-4b-MNV" id="H54-qx-DbX"/>
+                        <outlet property="updateProfileButton" destination="RGi-ZE-2kK" id="WYX-l8-WTi"/>
+                        <outlet property="uploadButton" destination="Tri-ig-vMG" id="yjB-yn-Cmu"/>
+                        <outlet property="userLabel" destination="AGa-5z-AsH" id="7C3-IL-zu3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOb-Rq-OH2" userLabel="First Responder" sceneMemberID="firstResponder"/>

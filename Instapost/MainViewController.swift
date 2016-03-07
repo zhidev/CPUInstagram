@@ -33,8 +33,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
 
         
-        getData()
-        tableView.reloadData()
+        //getData()
+        //tableView.reloadData()
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
@@ -43,7 +43,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         getData()
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
