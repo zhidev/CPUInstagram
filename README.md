@@ -41,6 +41,8 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+The image of the laptop is meant to show that taking a picture via iPhone works
+
 ![walkthrough](Instapostv1.0.gif)
 
 
