@@ -16,6 +16,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var tableView: UITableView!
     
     
+    var refreshControl: UIRefreshControl!
+    
+    
     var data: [PFObject]?
     let HeaderViewIdentifier = "TableViewHeader"
     
@@ -32,6 +35,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         getData()
         tableView.reloadData()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -137,14 +145,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-    
-    
-    /*
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier)! as UITableViewHeaderFooterView
-        print("PIKACHU:")
-        print(data?[0])
-        return header
-    }*/
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        // Make network request to fetch latest data
+        getData()
+        
+        refreshControl.endRefreshing()
+    }
     
 }
