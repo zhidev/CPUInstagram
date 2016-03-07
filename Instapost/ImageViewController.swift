@@ -32,15 +32,15 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        vc = UIImagePickerController()
+        vc!.delegate = self
+        vc!.allowsEditing = true
         // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        vc = UIImagePickerController()
-        vc!.delegate = self
-        vc!.allowsEditing = true
+        
 
     }
     
@@ -110,9 +110,10 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print("Test")
     }
     
-    
     func finishPost(){
         self.tabBarController?.selectedIndex = 0
+        self.captionText.text = "Add a caption..."
+        self.captionText.resignFirstResponder()
         //switch to main view controller
     }
     

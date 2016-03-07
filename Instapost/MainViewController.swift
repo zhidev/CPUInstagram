@@ -33,6 +33,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         getData()
         tableView.reloadData()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        getData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
