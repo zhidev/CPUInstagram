@@ -17,6 +17,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     var data: [PFObject]?
+    let HeaderViewIdentifier = "TableViewHeader"
     
     
     override func viewDidLoad() {
@@ -25,6 +26,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
+
         
         getData()
         tableView.reloadData()
@@ -51,6 +55,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if data != nil{
             print("Test")
             let object = data![indexPath.row]
+            print("%%%%%%%%%%%%%%%%%%")
+            print(object.createdAt)
+            print("$$$$$$$$$$$$$$$$")
+            cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
             cell.object = object
         }
         print("Test3")
@@ -93,4 +101,44 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("endGetData")
     }
 
+    func calculateTimestamp(tweetTime: NSTimeInterval) -> String {
+        //Turn tweetTime into sec, min, hr , days, yrs
+        var time = Int(tweetTime)
+        var timeAgo = 0
+        var timeChar = ""
+        
+        time = time*(-1)
+        
+        // Find time ago
+        if (time <= 60) { // SECONDS
+            timeAgo = time
+            timeChar = "sec"
+        } else if ((time/60) <= 60) { // MINUTES
+            timeAgo = time/60
+            timeChar = "min"
+        } else if (time/60/60 <= 24) { // HOURS
+            timeAgo = time/60/60
+            timeChar = "hr"
+        } else if (time/60/60/24 <= 365) { // DAYS
+            timeAgo = time/60/60/24
+            timeChar = "day"
+        } else if (time/(3153600) <= 1) { // YEARS
+            timeAgo = time/60/60/24/365
+            timeChar = "yr"
+        }
+        //format string
+        return "\(timeAgo)\(timeChar) ago"
+    }
+    
+    
+    
+    
+    /*
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier)! as UITableViewHeaderFooterView
+        print("PIKACHU:")
+        print(data?[0])
+        return header
+    }*/
+    
 }

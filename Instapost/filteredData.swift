@@ -34,7 +34,7 @@ class filteredData: NSObject {
         
         caption = newObject["caption"] as? String
         likesCount = newObject["likesCount"] as? Int
-        commentsCount = newObject["commentsC?unt"] as? Int
+        commentsCount = newObject["commentsCount"] as? Int
         name = newObject["name"] as? String
         
         if let newImage = object.valueForKey("media")! as? PFFile{

@@ -18,6 +18,9 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet var captionLabel: UILabel!
     @IBOutlet var likesLabel: UILabel!
     @IBOutlet var commentsLabel: UILabel!
+    @IBOutlet var createdDate: UILabel!
+    
+    
     
     var commentsCount: Int?
     var likesCount: Int?
@@ -35,14 +38,24 @@ class PhotoTableViewCell: UITableViewCell {
     /* set singleData once, then set it again inside filtered */
     var singleData: filteredData!{
         didSet{
+            userLabel.text = singleData.name
             snapshot.image = singleData.image
             captionLabel.text = singleData.caption
             likesCount = singleData.likesCount
             commentsCount = singleData.commentsCount
-            likesLabel.text = String(likesCount)
-            commentsLabel.text = String(commentsCount)
+            likesLabel.text = String(likesCount!)
+            commentsLabel.text = String(commentsCount!)
         }
     }
+    
+    var createdString: String?{
+    /* String for date */
+        didSet{
+            createdDate.text = createdString!
+        }
+    }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
