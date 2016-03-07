@@ -61,6 +61,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
             cell.object = object
         }
+        let patternNumber = (indexPath.row % 5)
+        cell.colorOrder = patternNumber
         print("Test3")
         print(data)
         return cell

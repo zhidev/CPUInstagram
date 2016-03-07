@@ -35,6 +35,9 @@ class PhotoTableViewCell: UITableViewCell {
     }
     
     
+    
+    
+    
     /* set singleData once, then set it again inside filtered */
     var singleData: filteredData!{
         didSet{
@@ -55,10 +58,17 @@ class PhotoTableViewCell: UITableViewCell {
         }
     }
     
+    let colors = [UIColor.blackColor(), UIColor.purpleColor(), UIColor.blueColor(), UIColor.redColor(), UIColor.grayColor()]
+    var colorOrder: Int?{
+        didSet{
+            self.backgroundColor = colors[self.colorOrder!]
+        }
+    }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
