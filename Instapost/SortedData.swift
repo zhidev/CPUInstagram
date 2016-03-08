@@ -10,10 +10,6 @@ import UIKit
 import Parse
 
 
-
-
-
-
 class SortedData: NSObject {
     
     
@@ -52,51 +48,6 @@ class SortedData: NSObject {
         
     }
     
-    /*init(data: [PFObject]){
-        super.init()
-        print("Initted beggining")
-        phaseOne(data)
-        print("????")
-    }*/
-    
-
-    /*func parse(data: PFObject){ // copy pasta from filtered data
-        print(":::::::::::::::::::INIT PARSE :::::::::::::::::::::::")
-        /* Create new object */
-        let newData = data
-        
-        /* Filter out our object */
-        //author = newObject["author"] as! PFUser
-        //Not using author yet no point unwrapping
-        
-        caption = newData["caption"] as? String
-        likesCount = newData["likesCount"] as? Int
-        commentsCount = newData["commentsCount"] as? Int
-        name = newData["name"] as? String
-        createdAt = data.createdAt
-        
-        
-        if let newImage = newData.valueForKey("media")! as? PFFile{
-            newImage.getDataInBackgroundWithBlock({ (imageData: NSData?, error:NSError?)->Void in
-                if error == nil{
-                    let image = UIImage(data: imageData!)
-                    self.image = image
-                    //self.cell?.singleData = self
-                }else{
-                    print("Error: couldnt get image: \(error?.localizedDescription)")
-                    print(error)
-                }
-                self.check.check2 = true
-                self.checkForExit()
-            })//end block
-        }//end if let
-        grabProfile(name!)
-    }*///end parse
-    
-    /*func loop(indice: Int, data: [PFObject]){
-        check = (false, false)
-        parse(data[indice])
-    }*/
     
     
     

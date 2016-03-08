@@ -191,11 +191,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func createSortedData(notification: NSNotification){
         //let indice = notification.userInfo!["Counter"] as! Int
-        let indice = counter
-        let object = data![indice]
-        let newData = SortedData()
-        newData.parse(object)
-        counter++
+        if (counter < data?.count){
+            let indice = counter
+            let object = data![indice]
+            let newData = SortedData()
+            newData.parse(object)
+            counter++
+        }
     }
     
     
