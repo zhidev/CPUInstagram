@@ -50,6 +50,7 @@ class PhotoTableViewCell: UITableViewCell {
             commentsCount = singleData.commentsCount
             likesLabel.text = String(likesCount!)
             commentsLabel.text = String(commentsCount!)
+            setAvatarImage.loadProfile(singleData.name!, specialCase: "Cell")
         }
     }
     
@@ -59,7 +60,6 @@ class PhotoTableViewCell: UITableViewCell {
             createdDate.text = createdString!
         }
     }
-    
     let colors = [UIColor.blackColor(), UIColor.purpleColor(), UIColor.blueColor(), UIColor.redColor(), UIColor.grayColor()]
     var colorOrder: Int?{
         didSet{
@@ -67,10 +67,18 @@ class PhotoTableViewCell: UITableViewCell {
         }
     }
     
+    var profileObject: PFObject?{
+        didSet{
+            setAvatarImage.loadAvatar(profileObject!, toSetImage: avatar)
+
+        }
+    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        print("Potato test")
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingAvatar:", name: "SetCellAvatarNotification", object: nil)
         // Initialization code
     }
 
@@ -79,7 +87,14 @@ class PhotoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func settingAvatar(notification: NSNotification){
+        print("setting avatar fired")
+        let userInfo = notification.userInfo!["Profile"] as! [PFObject]
+        if(userInfo.count > 0){
+            profileObject = userInfo[0]
+        }
+    }
 
     
 }

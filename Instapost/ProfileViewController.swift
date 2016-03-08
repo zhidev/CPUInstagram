@@ -57,8 +57,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         createProfileButton.backgroundColor = UIColor.grayColor()
         createProfileButton.enabled = false
+        createProfileButton.layer.cornerRadius = 10
+        createProfileButton.clipsToBounds = true
         updateProfileButton.backgroundColor = UIColor.grayColor()
         updateProfileButton.enabled = false
+        updateProfileButton.layer.cornerRadius = 10
+        updateProfileButton.clipsToBounds = true
+        logoutButton.layer.cornerRadius = 5
+        logoutButton.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 
@@ -66,20 +72,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidAppear(true)
         let username = PFUser.currentUser()?.username!
         userLabel.text = username
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingProfile:", name: "SetProfileVCNotification", object: nil)
+        
+        
+        
+        
         vc = UIImagePickerController()
         vc!.delegate = self
         vc!.allowsEditing = true
         vc!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        profileExists(username!)
-        setAvatarImage.loadProfile(username!, profileObjectToSet: profile)
-        /* Set this to true for now because too convulated. 
-            TODO: Set a notification to set these
-        */
-        /*createProfileButton.backgroundColor = UIColor.blackColor()
-        createProfileButton.enabled = true
-        //delete this, testing
-        updateProfileButton.backgroundColor = UIColor.blackColor()
-        updateProfileButton.enabled = true*/
+        //profileExists(username!)
+        setAvatarImage.loadProfile(username!, specialCase: "ProfileVC")
     }
     
     
@@ -147,7 +151,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func profileExists(username: String){
+    /*func profileExists(username: String){
         var exists = false
         
         let query = PFQuery(className: "Profile")
@@ -172,7 +176,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("Error:\(error)")
             }
         }
-    }
+    }*/
 /*
     func loadAvatar(object: PFObject){
         print("Starting loadAvatar")
@@ -186,5 +190,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             })//end block
         }//end if let avatar
     }//end func*/
+    func settingProfile(notification: NSNotification){
+        print("SettingProfile notification fired")
+        let userInfo = notification.userInfo!["Profile"] as! [PFObject]
+        if(userInfo.count == 0){
+            doesProfileExists = false
+        }else{
+            profile = userInfo[0]
+        }
+        //self.profile = userInfo
+    }
     
 }

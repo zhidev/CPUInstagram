@@ -72,19 +72,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as! PhotoTableViewCell
         if data != nil{
-            print("Test")
             let object = data![indexPath.row]
-            print("%%%%%%%%%%%%%%%%%%")
-            print(object.createdAt)
-            print("$$$$$$$$$$$$$$$$")
             cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
             print(object)
             cell.object = object
         }
         let patternNumber = (indexPath.row % 5)
         cell.colorOrder = patternNumber
-        print("Test3")
-        print(data)
         return cell
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,11 +102,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         query.findObjectsInBackgroundWithBlock{ (posts: [PFObject]?, error: NSError?)->Void in
             print("Entered Block")
             if let posts = posts{
-                print("**********************")
-                print(posts)
                 self.data = posts
                 self.tableView.reloadData()
-                print("$$$$$$$$$$$$$$$$$$$$$$$$")
             }else{
                 print("ERROR: Couldn't obtain data from parse.")
                 print(error)
