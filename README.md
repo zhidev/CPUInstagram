@@ -59,12 +59,16 @@ The image of the laptop is meant to show that taking a picture via iPhone works
 
 When i get the remainder of the optionals done.
 
+Note: Delay on new login due to design to parse out all the information in array properly before using the array to use.
+
 [Part 2]
 
 ![walkthrough](Instapostv2.0.gif)
 
 
 When i get the last optional and some extras done
+
+
 
 [Part 3]
 
