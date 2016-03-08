@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. 
+1. The profile would've been much easier to implement if it was worked around from the very beggining. Trying to incorporate in created a lot of headaches.
 2. 
 
 ## Video Walkthrough 
