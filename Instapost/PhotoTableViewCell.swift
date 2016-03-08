@@ -50,7 +50,7 @@ class PhotoTableViewCell: UITableViewCell {
             commentsCount = singleData.commentsCount
             likesLabel.text = String(likesCount!)
             commentsLabel.text = String(commentsCount!)
-            setAvatarImage.loadProfile(singleData.name!, specialCase: "Cell")
+            //setAvatarImage.loadProfile(singleData.name!, specialCase: "Cell")
         }
     }
     
@@ -70,7 +70,6 @@ class PhotoTableViewCell: UITableViewCell {
     var profileObject: PFObject?{
         didSet{
             setAvatarImage.loadAvatar(profileObject!, toSetImage: avatar)
-
         }
     }
 
@@ -78,7 +77,7 @@ class PhotoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         print("Potato test")
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingAvatar:", name: "SetCellAvatarNotification", object: nil)
+        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingAvatar:", name: "SetCellAvatarNotification", object: nil)
         // Initialization code
     }
 
