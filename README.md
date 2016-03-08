@@ -51,6 +51,10 @@ The image of the laptop is meant to show that taking a picture via iPhone works
 
 [Part 2]
 When i get the remainder of the optionals done.
+![walkthrough](Instapostv2.0.gif)
+
+[Part 3]
+When i get the last optional and some extras done
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
