@@ -100,6 +100,8 @@ class PhotoTableViewCell: UITableViewCell {
             profileObject = userInfo[0]
         }
     }
+    
+ 
 
     
 }

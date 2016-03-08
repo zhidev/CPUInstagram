@@ -136,7 +136,7 @@
                                                     <rect key="frame" x="10" y="348" width="293" height="21"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="293" id="DkU-es-lNV"/>
+                                                        <constraint firstAttribute="width" priority="999" constant="293" id="DkU-es-lNV"/>
                                                         <constraint firstAttribute="height" constant="21" id="ubd-Jh-Uwx"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

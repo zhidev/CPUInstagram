@@ -18,10 +18,12 @@ class SortedData: NSObject {
     var caption: String?
     var likesCount: Int?
     var commentsCount: Int?
-    
-    var avatarImg: UIImage?
     var author: PFUser?
     var createdAt: NSDate?
+    
+    
+    /* Profile Information*/
+    var avatarImg: UIImage?
     
     
     var check = (check1: false, check2: false)
