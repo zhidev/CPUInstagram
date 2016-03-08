@@ -46,9 +46,11 @@ Models built to be extended.
 Here's a walkthrough of implemented user stories:
 
 The image of the laptop is meant to show that taking a picture via iPhone works
-
+[Part 1]
 ![walkthrough](Instapostv1.0.gif)
 
+[Part 2]
+When i get the remainder of the optionals done.
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
