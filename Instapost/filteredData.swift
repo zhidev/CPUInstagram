@@ -44,7 +44,7 @@ class filteredData: NSObject {
                 if error == nil{
                     let image = UIImage(data: imageData!)
                     self.image = image
-                    self.cell?.singleData = self
+                    //self.cell?.singleData = self
                     print(image)
                     print("Potato")
                 }else{

@@ -35,13 +35,16 @@ class setAvatarImage: NSObject {
                     //NSNotificationCenter.defaultCenter().postNotificationName("SetProfileVCNotification", object: self, userInfo: ["Profile":results!])
                 }
                 if(specialCase == "ProfileVC"){
-                    print("special case: cell")
+                    print("special case: profilevc")
                     NSNotificationCenter.defaultCenter().postNotificationName("SetProfileVCNotification", object: self, userInfo: ["Profile":results!])
                 }
-                if(specialCase == "Cell"){
-                    print("special case: profilevc")
+                if(specialCase == "Post"){
+                    print("special case: post")
 
-                    NSNotificationCenter.defaultCenter().postNotificationName("SetCellAvatarNotification", object: self, userInfo: ["Profile":results!])
+                    NSNotificationCenter.defaultCenter().postNotificationName("SetProfilePostNotification", object: self, userInfo: ["Profile":results!])
+                }
+                if(specialCase == "Data"){
+                    NSNotificationCenter.defaultCenter().postNotificationName("SortedDataNotification", object: self, userInfo: ["Profile":results!])
                 }
             }else{
                 print("Error:\(error)")

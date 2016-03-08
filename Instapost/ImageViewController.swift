@@ -36,6 +36,10 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         vc!.allowsEditing = true
         // Do any additional setup after loading the view.
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotProfileToSend:", name: "SetProfilePostNotification", object: nil)
+        
+        
+        
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -86,11 +90,37 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print("TesttakePhoto")
     }
     
-    
+    /* Chain Link #1 AAA */
     @IBAction func postPhoto(sender: AnyObject) {
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate //should be able to comment it out
         loadingNotification.labelText = "Posting image please wait..."
+        //grabProfile()
+        sendPhoto()
+    }
+    /*
+    /* Chain Link #2 AAA */
+    func grabProfile(){
+        setAvatarImage.loadProfile((PFUser.currentUser()?.username!)!, specialCase: "Post")
+    }
+    
+    /* Chain Link #3 AAA */
+    func gotProfileToSend(notfication: NSNotification){
+        var profile: PFObject?
+        let userInfo = notfication.userInfo!["Profile"] as! [PFObject]
+        if(userInfo.count>1){
+            profile = userInfo[0]
+        }else{
+            profile = PFObject(className: "Profile")
+        }
+        sendPhoto()//(profile)
+    }*/
+    
+
+    /* Chain Link #4 AAA */
+
+    func sendPhoto(){//(profile: PFObject?){
+
         Post.postUserImage(imageOrig, withCaption: captionText.text){ (success: Bool, error: NSError?)-> Void in
             if success{
                 print("Success: (assert(true)) : \(success)")
@@ -99,10 +129,9 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
             }else{
                 print(error)
             }
-            MBProgressHUD.hideHUDForView(self.view, animated: false)
+            MBProgressHUD.hideHUDForView(self.view, animated: false) //finally close HUD from Chain Link #1 AAA
         }//end closure
     }
-
     
     func finishPost(){
         self.tabBarController?.selectedIndex = 0
@@ -110,6 +139,4 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.captionText.resignFirstResponder()
         //switch to main view controller
     }
-    
-    
 }

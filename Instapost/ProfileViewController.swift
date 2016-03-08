@@ -66,6 +66,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         logoutButton.layer.cornerRadius = 5
         logoutButton.clipsToBounds = true
         // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingProfile:", name: "SetProfileVCNotification", object: nil)
+        
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -73,8 +76,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let username = PFUser.currentUser()?.username!
         userLabel.text = username
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingProfile:", name: "SetProfileVCNotification", object: nil)
-        
+
         
         
         

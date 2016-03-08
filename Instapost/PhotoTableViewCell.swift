@@ -27,30 +27,36 @@ class PhotoTableViewCell: UITableViewCell {
     var likesCount: Int?
     
     
-    var object: PFObject?{
+    /*var object: PFObject?{
         didSet{
             print("HM?")
             //setAvatarImage.loadAvatar(object!, toSetImage: avatar)
             singleData = filteredData(object: object!)
             singleData.cell = self //give it this cell to return image to
         }
-    }
+    }*/
     
     
     
     
     
     /* set singleData once, then set it again inside filtered */
-    var singleData: filteredData!{
+    var singleData: SortedData!{
         didSet{
+            print("SINGLE DATA GOT SET %%%%%%%%%%")
             userLabel.text = singleData.name
+            print(singleData.name)
             snapshot.image = singleData.image
-            captionLabel.text = singleData.caption
+            captionLabel.text = singleData.caption!
+            print(singleData.caption!)
+            print(singleData.caption)
+            print(captionLabel.text)
             likesCount = singleData.likesCount
             commentsCount = singleData.commentsCount
             likesLabel.text = String(likesCount!)
             commentsLabel.text = String(commentsCount!)
-            //setAvatarImage.loadProfile(singleData.name!, specialCase: "Cell")
+            snapshot.image = singleData.image
+            avatar.image = singleData.avatarImg
         }
     }
     
@@ -69,7 +75,7 @@ class PhotoTableViewCell: UITableViewCell {
     
     var profileObject: PFObject?{
         didSet{
-            setAvatarImage.loadAvatar(profileObject!, toSetImage: avatar)
+            //setAvatarImage.loadAvatar(profileObject!, toSetImage: avatar)
         }
     }
 

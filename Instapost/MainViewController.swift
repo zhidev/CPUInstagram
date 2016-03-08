@@ -20,11 +20,23 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     
+    var dataCount: Int?{
+        didSet{
+            print("Data didSet : \(dataCount)  -------- \(data?.count) ======= \(sortedData.count)")
+            if(dataCount == data?.count){
+                print("Inside dataCountDidSet if loop")
+                tableView.reloadData()
+            }
+        }
+    }
     
-    
+    var counter = 0
     
     
     var data: [PFObject]?
+    var sortedData = [SortedData]()
+    
+    
     let HeaderViewIdentifier = "TableViewHeader"
     
     
@@ -34,7 +46,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "appendSortedData:", name: "SortedDataNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "createSortedData:", name: "SortingNotification", object: nil)
+
+
         //tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
 
         
@@ -50,7 +65,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         getData()
-        tableView.reloadData()
+        //tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,12 +86,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as! PhotoTableViewCell
-        if data != nil{
+        /*if data != nil{
             let object = data![indexPath.row]
             cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
             print(object)
             cell.object = object
-        }
+        }*/
+        print("SORTED DATA != nil is : \(sortedData)")
+        //if sortedData != nil{
+            let object = sortedData[indexPath.row]
+        print("OBJECT CAPTION IS :\(object.caption)")
+            cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
+            cell.singleData = object
+        //}
         let patternNumber = (indexPath.row % 5)
         cell.colorOrder = patternNumber
         return cell
@@ -91,6 +113,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func getData(){
         print("Start get data")
+        dataCount = 0
+        sortedData.removeAll()
         let query = PFQuery(className: "Post")
         /* Set query parameters */
         query.orderByDescending("createdAt")
@@ -103,15 +127,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("Entered Block")
             if let posts = posts{
                 self.data = posts
-                self.tableView.reloadData()
+                self.sortData()
+                //self.tableView.reloadData()
             }else{
                 print("ERROR: Couldn't obtain data from parse.")
                 print(error)
+                self.tableView.reloadData()
             }
-        
-        
         }//end query
         print("endGetData")
+        //tableView.reloadData()
     }
 
     func calculateTimestamp(tweetTime: NSTimeInterval) -> String {
@@ -151,5 +176,35 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         refreshControl.endRefreshing()
     }
+
     
+    func sortData(){
+        counter = 0
+        print("SORTING DATA: \(data!.count) & \(sortedData.count)")
+        /*for extractedData in data!{
+            counter++
+            print("COUNTER: \(counter)")
+            _ = SortedData(data: extractedData)
+        }*/
+        NSNotificationCenter.defaultCenter().postNotificationName("SortingNotification", object: self, userInfo: nil)
+    }
+    
+    func createSortedData(notification: NSNotification){
+        //let indice = notification.userInfo!["Counter"] as! Int
+        let indice = counter
+        let object = data![indice]
+        let newData = SortedData()
+        newData.parse(object)
+        counter++
+    }
+    
+    
+    func appendSortedData(notification: NSNotification){
+        print("%%%%%%%%%%%%%%%%%Appending data%%%%%%%%%%%%%")
+        print("SORTED DATA COUNT :\(sortedData.count)")
+        let userInfo = notification.userInfo!["SortedData"] as! SortedData
+        sortedData.append(userInfo)
+        print("SortedData Caption: \(userInfo.caption)")
+        dataCount!++
+    }
 }
