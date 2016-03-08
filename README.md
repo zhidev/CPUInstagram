@@ -48,6 +48,8 @@ Here's a walkthrough of implemented user stories:
 The image of the laptop is meant to show that taking a picture via iPhone works
 [Part 1]
 ![walkthrough](Instapostv1.0.gif)
+
+
 When i get the remainder of the optionals done.
 
 [Part 2]
@@ -56,6 +58,7 @@ When i get the remainder of the optionals done.
 
 
 When i get the last optional and some extras done
+
 [Part 3]
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
