@@ -225,14 +225,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cb-by-xGX" customClass="CustomSettingView" customModule="Instapost" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="135" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="xMd-dO-Thj"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wRa-3z-jjf" appends="YES" id="QUY-RY-dle"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.64284198010000004" green="0.70989557110000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VrU-lR-ul3" firstAttribute="top" secondItem="BcQ-fk-etY" secondAttribute="top" id="1T0-km-7gL"/>
+                            <constraint firstItem="9cb-by-xGX" firstAttribute="leading" secondItem="BcQ-fk-etY" secondAttribute="leading" id="Ars-5Z-gue"/>
                             <constraint firstItem="nfb-Bt-RDb" firstAttribute="top" secondItem="VrU-lR-ul3" secondAttribute="bottom" constant="10" id="PQY-jp-SD5"/>
+                            <constraint firstAttribute="bottom" secondItem="9cb-by-xGX" secondAttribute="bottom" id="PiS-jg-QDQ"/>
                             <constraint firstItem="VrU-lR-ul3" firstAttribute="leading" secondItem="BcQ-fk-etY" secondAttribute="leading" id="a7A-V6-Fg4"/>
                             <constraint firstItem="nfb-Bt-RDb" firstAttribute="centerX" secondItem="VrU-lR-ul3" secondAttribute="centerX" id="d89-qb-bMk"/>
                             <constraint firstAttribute="trailing" secondItem="VrU-lR-ul3" secondAttribute="trailing" id="jfX-ec-cqI"/>
+                            <constraint firstItem="9cb-by-xGX" firstAttribute="top" secondItem="BcQ-fk-etY" secondAttribute="top" id="kfI-ny-bK2"/>
                             <constraint firstItem="Ayk-zw-Xpi" firstAttribute="top" secondItem="nfb-Bt-RDb" secondAttribute="bottom" constant="10" id="xCk-T4-Mot"/>
                         </constraints>
                     </view>
@@ -242,11 +256,18 @@
                     <navigationItem key="navigationItem" id="tMg-1z-IvP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="customView" destination="9cb-by-xGX" id="2R9-wl-s4Y"/>
+                        <outlet property="customViewTapGesture" destination="wRa-3z-jjf" id="7LH-BP-mZI"/>
                         <outlet property="logoutButton" destination="nfb-Bt-RDb" id="IKl-jF-s8g"/>
                         <outlet property="tableView" destination="VrU-lR-ul3" id="e5H-o4-oi7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zvc-vs-1r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wRa-3z-jjf">
+                    <connections>
+                        <action selector="contentViewTapped:" destination="gGS-fm-wLf" id="cE3-3B-KdE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2280" y="361"/>
         </scene>

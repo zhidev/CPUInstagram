@@ -12,8 +12,12 @@ import Parse
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var logoutButton: UIButton!
-    
     @IBOutlet var tableView: UITableView!
+    
+    
+    @IBOutlet var customView: CustomSettingView!
+    @IBOutlet var customViewTapGesture: UITapGestureRecognizer!
+    
     
     
     var refreshControl: UIRefreshControl!
@@ -31,8 +35,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     var counter = 0
-    
-    
     var data: [PFObject]?
     var sortedData = [SortedData]()
     
@@ -40,11 +42,18 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let HeaderViewIdentifier = "TableViewHeader"
     let singleton = ParseUserData.sharedInstance
     
+    var viewXWhenOpen: CGFloat!
+    var viewXWhenClosed:  CGFloat!
+    var viewStateOpen: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         singleton.populateData()
+        
+        viewXWhenOpen = customView.center.x
+        viewXWhenClosed = CGFloat(0)
+        customView.center = CGPoint(x: viewXWhenClosed , y: customView.center.y)
 
-        print("testing, viewDidLoad()")
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,6 +61,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "createSortedData:", name: "SortingNotification", object: nil)
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        
         tableView.addSubview(refreshControl)
         
     }
@@ -59,7 +69,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         getData()
-        //tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +81,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func logoutPressed(sender: AnyObject) {
         PFUser.logOut()
         if PFUser.currentUser() == nil{
+            singleton.zhi_logged_out(true)
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(false, forKey: "preload")
             dismissViewControllerAnimated(true, completion: nil)
@@ -166,11 +177,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func sortData(){
         counter = 0
         print("SORTING DATA: \(data!.count) & \(sortedData.count)")
-        /*for extractedData in data!{
-            counter++
-            print("COUNTER: \(counter)")
-            _ = SortedData(data: extractedData)
-        }*/
         NSNotificationCenter.defaultCenter().postNotificationName("SortingNotification", object: self, userInfo: nil)
     }
     
@@ -193,4 +199,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("SortedData Caption: \(userInfo.caption)")
         dataCount!++
     }
+    @IBAction func contentViewTapped(sender: UITapGestureRecognizer) {
+        NSNotificationCenter.defaultCenter().postNotificationName("CustomViewNotification", object: self, userInfo: nil)
+        
+
+    }
+    
 }

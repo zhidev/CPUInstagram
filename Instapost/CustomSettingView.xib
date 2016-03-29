@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSettingView" customModule="Instapost" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarPanGesture" destination="xZL-rm-tVN" id="eN4-zP-ABK"/>
+                <outlet property="avatarView" destination="Klz-ya-A4b" id="v9P-qe-v8S"/>
+                <outlet property="birthdateLabel" destination="bQ3-2U-lhT" id="FJT-az-3TF"/>
+                <outlet property="birthdatePanGesture" destination="LUw-eV-oSN" id="EGK-sF-AWx"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="81r-IC-3C1"/>
+                <outlet property="usernameLabel" destination="Unc-Wi-LBW" id="bUL-sb-vaD"/>
+                <outlet property="usernamePanGesture" destination="hgG-3b-HqZ" id="thA-qj-kil"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.55000000000000004" contentMode="scaleAspectFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="135" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Klz-ya-A4b">
+                    <rect key="frame" x="17" y="47" width="100" height="100"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="xZL-rm-tVN" appends="YES" id="uIE-vf-Qir"/>
+                    </connections>
+                </imageView>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Birthdate Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ3-2U-lhT">
+                    <rect key="frame" x="8" y="291" width="114" height="18"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="LUw-eV-oSN" appends="YES" id="79S-8u-3Xb"/>
+                    </connections>
+                </label>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-Wi-LBW">
+                    <rect key="frame" x="17" y="228" width="100" height="21"/>
+                    <gestureRecognizers/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="hgG-3b-HqZ" appends="YES" id="QhV-V2-z6b"/>
+                    </connections>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="237.5" y="342"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="xZL-rm-tVN">
+            <connections>
+                <action selector="avatarPanned:" destination="-1" id="TP5-Uu-1tv"/>
+            </connections>
+        </panGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="hgG-3b-HqZ">
+            <connections>
+                <action selector="usernamePanned:" destination="-1" id="AKs-4Z-EIT"/>
+            </connections>
+        </panGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="LUw-eV-oSN">
+            <connections>
+                <action selector="birthdatePanned:" destination="-1" id="t1c-n9-yKb"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

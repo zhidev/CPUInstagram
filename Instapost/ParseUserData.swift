@@ -19,6 +19,7 @@ class ParseUserData: NSObject {
     
     static let sharedInstance: ParseUserData = ParseUserData()
     
+    var currentUserExists: Bool = false
     var name: String?
     var avatar: UIImage?
     var birthdate: String?
@@ -50,7 +51,7 @@ class ParseUserData: NSObject {
         if let userEmail = PFUser.currentUser()?.email{
             email = userEmail
         }
-        
+        currentUserExists = true
     }
     
     /* Change any of the field and push to parse server */
@@ -103,6 +104,9 @@ class ParseUserData: NSObject {
     /* Setters */
     func zhi_setAvatar(image: UIImage){
         avatar = image
+    }
+    func zhi_logged_out(didLogOut: Bool){
+        currentUserExists = !didLogOut
     }
     
     

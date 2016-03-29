@@ -67,6 +67,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func onLogout(sender: AnyObject) {
         PFUser.logOut()
         if PFUser.currentUser() == nil{
+            userSingleton.zhi_logged_out(true)
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(false, forKey: "preload")
             dismissViewControllerAnimated(true, completion: nil)

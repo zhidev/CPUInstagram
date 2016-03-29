@@ -51,6 +51,10 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             if user != nil{
                 print("you're logged in")
                 self.performSegueWithIdentifier("loginSegue", sender: self)
+            }else{
+                let alert = UIAlertController(title: "Error!", message: error?.localizedDescription, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                self.presentViewController(alert, animated: true){}
             }
         }//end completion block
     }
@@ -72,19 +76,16 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 newUser.signUpInBackgroundWithBlock({ (success: Bool, error: NSError?)-> Void in
                     print(newUser)
                     
-                    if success{
+                    if error != nil{
                         print("Created a user")
                         print(newUser)
                         self.performSegueWithIdentifier("loginSegue", sender: self)
                         
                     }//end if success
                     else{
-                        if error?.code == 202{
-                            print("Username is taken")
-                        }else{
-                            print(error?.localizedDescription)
-                            
-                        }
+                        let alert = UIAlertController(title: "Error!", message: error?.localizedDescription, preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                        self.presentViewController(alert, animated: true){}
                     }
                 })
             }
