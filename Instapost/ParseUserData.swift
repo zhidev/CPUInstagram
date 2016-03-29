@@ -55,9 +55,7 @@ class ParseUserData: NSObject {
     
     /* Change any of the field and push to parse server */
     func zhi_updateProfile(){
-        print("Beep")
         let user = PFUser.currentUser()!
-        print("BOOP")
         if let avatar = avatar{
             let imageData: NSData = UIImageJPEGRepresentation(avatar, 1.0)!
             let imageFile: PFFile = PFFile(name:"image.jpg", data:imageData)!

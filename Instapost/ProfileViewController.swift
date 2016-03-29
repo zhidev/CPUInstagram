@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var avatar: UIImageView!
     @IBOutlet var createProfileButton: UIButton!
     @IBOutlet var updateProfileButton: UIButton!
+    @IBOutlet var birthdateLabel: UILabel!
     
     
     var avatarImg: UIImage?
@@ -132,10 +133,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let avatarData = userSingleton.zhi_getAvatar(){
             avatar.image = avatarData
         }
-        /*
-        if let bday = ParseUserData.sharedInstance.getDOB(){
-            //Set birthdate here TODO
+        
+        if let bday = userSingleton.zhi_getDOB(){
+            birthdateLabel.text = bday
         }
+        /*
         if let email = ParseUserData.sharedInstance.getEmail(){
             //set email fields here
         }*/

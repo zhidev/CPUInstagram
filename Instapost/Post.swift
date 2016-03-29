@@ -25,8 +25,11 @@ class Post: NSObject {
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
         // Create Parse object PFObject
         let post = PFObject(className: "Post")
-        let newImage = self.resize(image!, newSize: CGSize(width: 300, height: 500))//want to resize to 10MB (Max of Parse upload)
-        post["media"] = getPFFileFromImage(newImage) // PFFile column type
+        if let image = image{
+            let newImage = self.resize(image, newSize: CGSize(width: 300, height: 500))//want to resize to 10MB (Max of Parse upload)
+            post["media"] = getPFFileFromImage(newImage) // PFFile column type
+
+        }
         post["author"] = PFUser.currentUser() // Pointer column type that points to PFUser
         post["caption"] = caption
         post["likesCount"] = 0

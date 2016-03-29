@@ -50,14 +50,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "appendSortedData:", name: "SortedDataNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "createSortedData:", name: "SortingNotification", object: nil)
-
-
-        //tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
-
-        
-        //getData()
-        //tableView.reloadData()
-        
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
