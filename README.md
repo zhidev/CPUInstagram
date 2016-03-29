@@ -36,10 +36,17 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. The profile would've been much easier to implement if it was worked around from the very beggining. Trying to incorporate in created a lot of headaches.
-2. 
+2. Use of NSNotifications and observers in conjection with didSets
 
 Extras:
 Models built to be extended.
+
+Thoughts on improvements for project or course in general:
+1. Teach more on shallow/deep copies and how to (Didnt find any guides)
+2. NSNotifications/Observers
+3. More on asynchronous/synchronous calls and how to do both more efficiently and when one is better than the other with examples
+4. 
+
 
 ## Video Walkthrough 
 
@@ -49,8 +56,21 @@ The image of the laptop is meant to show that taking a picture via iPhone works
 [Part 1]
 ![walkthrough](Instapostv1.0.gif)
 
-[Part 2]
+
 When i get the remainder of the optionals done.
+
+Note: Delay on new login due to design to parse out all the information in array properly before using the array to use.
+
+[Part 2]
+
+![walkthrough](Instapostv2.0.gif)
+
+
+When i get the last optional and some extras done
+
+
+
+[Part 3]
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
