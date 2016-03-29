@@ -96,13 +96,13 @@ Describe any challenges encountered while building the app.
 
 ## Changes Since Submission for class P1.0
 
--[x] Refactored Code. Data loads much faster, run time might've tripled with how slow the previous iteration was (way too much calls that could be cut with better architecture). Areas that were hit: Main(table) view controller, profile view controller.
--[x] Added a nifty custom picker for inputting birthdate
--[x] Users can edit profile pictures. Main data feed is dynamically updated with changes to profile.
--[x] Moved Post button to a more reasonable location in the imageViewController so keyboard doesn't get in the way.
--[x] Added alerts for error messages with initial login screen
--[x] Safer methods of unwrapping. changing from force unwrap -> if let
--[ ] Interactive View that displays current user, user information and avatar. Can drag said information and objects within the panel.
+- [x] Refactored Code. Data loads much faster, run time might've tripled with how slow the previous iteration was (way too much calls that could be cut with better architecture). Areas that were hit: Main(table) view controller, profile view controller.
+- [x] Added a nifty custom picker for inputting birthdate
+- [x] Users can edit profile pictures. Main data feed is dynamically updated with changes to profile.
+- [x] Moved Post button to a more reasonable location in the imageViewController so keyboard doesn't get in the way.
+- [x] Added alerts for error messages with initial login screen
+- [x] Safer methods of unwrapping. changing from force unwrap -> if let
+- [ ] Interactive View that displays current user, user information and avatar. Can drag said information and objects within the panel.
 (Currently incomplete *)
 
 Gif of P1.0 Changes
