@@ -93,3 +93,21 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+## Changes Since Submission for class P1.0
+-[x] Refactored Code. Data loads much faster, run time might've tripled with how slow the previous iteration was (way too much calls that could be cut with better architecture). Areas that were hit: Main(table) view controller, profile view controller.
+-[x] Added a nifty custom picker for inputting birthdate
+-[x] Users can edit profile pictures
+-[x] Moved Post button to a more reasonable location in the imageViewController so keyboard doesn't get in the way.
+-[x] Added alerts for error messages with initial login screen
+-[x] Safer methods of unwrapping. changing from force unwrap -> if let
+-[ ] Interactive View that displays current user, user information and avatar. Can drag said information and objects within the panel.
+(Currently incomplete *)
+
+Gif of P1.0 Changes
+
+<img src='http://i.imgur.com/hLWAQnh.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+* Constraints getting in the way of moving view around (in super view controller not in reusable model file)
