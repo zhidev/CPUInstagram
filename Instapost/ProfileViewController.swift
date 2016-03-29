@@ -12,7 +12,8 @@ import MBProgressHUD
 
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
+    let userSingleton = ParseUserData.sharedInstance
     
     @IBOutlet var logoutButton: UIButton!
     @IBOutlet var uploadButton: UIButton!
@@ -26,76 +27,41 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var vc: UIImagePickerController?
     
     
-    var doesProfileExists: Bool?{
-        didSet{
-            print("TESTERINO EXISTERINO")
-            if doesProfileExists!{
-                createProfileButton.backgroundColor = UIColor.grayColor()
-                createProfileButton.enabled = false
-                updateProfileButton.backgroundColor = UIColor.blackColor()
-                updateProfileButton.enabled = true
-            }else{
-                createProfileButton.backgroundColor = UIColor.blackColor()
-                createProfileButton.enabled = true
-                updateProfileButton.backgroundColor = UIColor.grayColor()
-                updateProfileButton.enabled = false
-            }
-        }
-    }
-    
-    var profile: PFObject?{
-        didSet{
-            print("This should load?")
-            setAvatarImage.loadAvatar(profile!, toSetImage: self.avatar)
-            doesProfileExists = true
-        }
-    }
-
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createProfileButton.backgroundColor = UIColor.grayColor()
-        createProfileButton.enabled = false
+        createProfileButton.backgroundColor = UIColor.blackColor()
+        createProfileButton.enabled = true
         createProfileButton.layer.cornerRadius = 10
         createProfileButton.clipsToBounds = true
-        updateProfileButton.backgroundColor = UIColor.grayColor()
-        updateProfileButton.enabled = false
+        updateProfileButton.backgroundColor = UIColor.blackColor()
+        updateProfileButton.enabled = true
         updateProfileButton.layer.cornerRadius = 10
         updateProfileButton.clipsToBounds = true
         logoutButton.layer.cornerRadius = 5
         logoutButton.clipsToBounds = true
         // Do any additional setup after loading the view.
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingProfile:", name: "SetProfileVCNotification", object: nil)
+        //®NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingProfile:", name: "SetProfileVCNotification", object: nil)
+        userSingleton.populateData()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "endProgress:", name: "FinishedLoadingNotification", object: nil)
+
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        let username = PFUser.currentUser()?.username!
-        userLabel.text = username
-        
-
-        
-        
-        
+        /*let username = PFUser.currentUser()?.username!
+        userLabel.text = username*/
+        setFields()
         vc = UIImagePickerController()
         vc!.delegate = self
         vc!.allowsEditing = true
         vc!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         //profileExists(username!)
-        setAvatarImage.loadProfile(username!, specialCase: "ProfileVC")
+        //setAvatarImage.loadProfile(username!, specialCase: "ProfileVC")
     }
-    
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     @IBAction func onLogout(sender: AnyObject) {
         PFUser.logOut()
@@ -119,7 +85,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func createProfile(sender: AnyObject) {
-        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        /*let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate //should be able to comment it out
         loadingNotification.labelText = "Creating profile please wait..."
         Post.postUserProfile(avatarImg){ (success: Bool, error: NSError?)->Void in
@@ -131,76 +97,52 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("Error: \(error)")
             }
             MBProgressHUD.hideHUDForView(self.view, animated: false)
-        }
+        }*/
 
     }
     
     @IBAction func updateProfile(sender: AnyObject) {
-        print(profile)
+        print("Update Profile clicked")
+        //userSingleton.zhi_setAvatar(avatar.image!)
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate //should be able to comment it out
+        loadingNotification.labelText = "Updating avatar please wait..."
+        userSingleton.zhi_updateProfile()
     }
     
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             // Get the image captured by the UIImagePickerController
-            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            //let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
             
-            avatarImg = originalImage
+            //avatarImg = originalImage
             avatar.image = editedImage
             //self.setter?.imageFrame?.image = originalImage
-            
+            userSingleton.zhi_setAvatar(avatar.image!)
             // Dismiss UIImagePickerController to go back to your original view controller
             dismissViewControllerAnimated(true, completion: nil)
     }
-
-    /*func profileExists(username: String){
-        var exists = false
-        
-        let query = PFQuery(className: "Profile")
-        query.whereKey("name", equalTo: username)
-        query.findObjectsInBackgroundWithBlock{ (results: [PFObject]?, error: NSError?)->Void in
-            if error == nil{
-                print(results)
-                if(results!.count > 1){
-                    print("More than 1 profile exists for this user...???")
-                }
-                else if( results!.count == 1){
-                    exists = true //profile does exist
-                    //self.loadAvatar(results![0])//unwrap our shoul.d be only PFObject
-                    //setAvatarImage.loadAvatar(results![0], toSetImage: self.avatar)
-                    self.doesProfileExists = exists
-                    self.profile = results![0]
-                }else{
-                    exists = false //profile doesnt exist
-                    self.doesProfileExists = exists
-                }
-            }else{
-                print("Error:\(error)")
-            }
+    
+    func setFields(){
+        print("Setting fields")
+        if let username = userSingleton.zhi_getUsername(){
+            userLabel.text = username
         }
-    }*/
-/*
-    func loadAvatar(object: PFObject){
-        print("Starting loadAvatar")
-        if let avatar = object.valueForKey("avatar")! as? PFFile{
-            avatar.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?)->Void in
-                if((error == nil)){
-                    let image = UIImage(data:imageData!)
-                    self.avatar.image = image
-                }
-                print("Finish stuff")
-            })//end block
-        }//end if let avatar
-    }//end func*/
-    func settingProfile(notification: NSNotification){
-        print("SettingProfile notification fired")
-        let userInfo = notification.userInfo!["Profile"] as! [PFObject]
-        if(userInfo.count == 0){
-            doesProfileExists = false
-        }else{
-            profile = userInfo[0]
+        if let avatarData = userSingleton.zhi_getAvatar(){
+            avatar.image = avatarData
         }
-        //self.profile = userInfo
+        /*
+        if let bday = ParseUserData.sharedInstance.getDOB(){
+            //Set birthdate here TODO
+        }
+        if let email = ParseUserData.sharedInstance.getEmail(){
+            //set email fields here
+        }*/
+    }
+    
+    func endProgress(notification: NSNotification){
+        MBProgressHUD.hideHUDForView(self.view, animated: false)
     }
     
 }

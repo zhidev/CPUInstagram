@@ -42,6 +42,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-Qf-mz0">
+                                <rect key="frame" x="0.0" y="463" width="320" height="152"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Select Your Birthdate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsZ-Nw-Hgv">
+                                <rect key="frame" x="51" y="434" width="218" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.64284198007014837" green="0.70989557111389079" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -62,6 +71,8 @@
                     <navigationItem key="navigationItem" id="oqM-JG-kQy"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="dobLabel" destination="QsZ-Nw-Hgv" id="ly5-oa-hgc"/>
+                        <outlet property="dobPicker" destination="Gmb-Qf-mz0" id="Evc-zg-kcu"/>
                         <outlet property="passwordTextfield" destination="JOX-qC-ilF" id="eAu-Uy-kqT"/>
                         <outlet property="signInButton" destination="V1o-1r-NSo" id="cA8-jD-757"/>
                         <outlet property="signUpButton" destination="eb0-ug-X4g" id="8aE-GG-5Ca"/>
@@ -352,9 +363,9 @@
                                     <action selector="onLogout:" destination="irA-SI-dHl" eventType="touchDown" id="STh-Ds-uuy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-avatar" translatesAutoresizingMaskIntoConstraints="NO" id="ef3-Sw-WOo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ef3-Sw-WOo">
                                 <rect key="frame" x="120" y="234" width="80" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="101-gn-xfV"/>
                                     <constraint firstAttribute="height" constant="100" id="x3c-oB-c76"/>

@@ -58,21 +58,6 @@ class Post: NSObject {
         return nil
     }
     
-    
-    class func postUserProfile(image: UIImage?, withCompletion completion: PFBooleanResultBlock?) {
-        let username = PFUser.currentUser()?.username!
-        let post = PFObject(className: "Profile")
-        post["name"] = username
-        let newImage = resize(image!, newSize: CGSize(width:80, height:100))
-        post["avatar"] = getPFFileFromImage(newImage)
-        print("In posting user profile")
-        post.saveInBackgroundWithBlock(completion)
-
-    }
-    
-    
-    
-    
     /**
      Method to resize the size of images to fit the 10MB limit of parse
      

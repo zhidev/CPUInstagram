@@ -38,10 +38,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     let HeaderViewIdentifier = "TableViewHeader"
-    
+    let singleton = ParseUserData.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        singleton.populateData()
+
         print("testing, viewDidLoad()")
         // Do any additional setup after loading the view.
         tableView.delegate = self
@@ -86,19 +88,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as! PhotoTableViewCell
-        /*if data != nil{
-            let object = data![indexPath.row]
-            cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
-            print(object)
-            cell.object = object
-        }*/
         print("SORTED DATA != nil is : \(sortedData)")
-        //if sortedData != nil{
-            let object = sortedData[indexPath.row]
+        let object = sortedData[indexPath.row]
         print("OBJECT CAPTION IS :\(object.caption)")
-            cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
-            cell.singleData = object
-        //}
+        cell.createdString = calculateTimestamp(object.createdAt!.timeIntervalSinceNow)
+        cell.singleData = object
         let patternNumber = (indexPath.row % 5)
         cell.colorOrder = patternNumber
         return cell
@@ -173,7 +167,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Make network request to fetch latest data
         getData()
-        
         refreshControl.endRefreshing()
     }
 
@@ -202,7 +195,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func appendSortedData(notification: NSNotification){
-        print("%%%%%%%%%%%%%%%%%Appending data%%%%%%%%%%%%%")
         print("SORTED DATA COUNT :\(sortedData.count)")
         let userInfo = notification.userInfo!["SortedData"] as! SortedData
         sortedData.append(userInfo)

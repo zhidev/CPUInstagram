@@ -25,38 +25,31 @@ class PhotoTableViewCell: UITableViewCell {
     
     var commentsCount: Int?
     var likesCount: Int?
-    
-    
-    /*var object: PFObject?{
-        didSet{
-            print("HM?")
-            //setAvatarImage.loadAvatar(object!, toSetImage: avatar)
-            singleData = filteredData(object: object!)
-            singleData.cell = self //give it this cell to return image to
-        }
-    }*/
-    
-    
-    
-    
-    
+
     /* set singleData once, then set it again inside filtered */
     var singleData: SortedData!{
         didSet{
-            print("SINGLE DATA GOT SET %%%%%%%%%%")
-            userLabel.text = singleData.name
-            print(singleData.name)
-            snapshot.image = singleData.image
-            captionLabel.text = singleData.caption!
-            print(singleData.caption!)
-            print(singleData.caption)
-            print(captionLabel.text)
-            likesCount = singleData.likesCount
-            commentsCount = singleData.commentsCount
-            likesLabel.text = String(likesCount!)
-            commentsLabel.text = String(commentsCount!)
-            snapshot.image = singleData.image
-            avatar.image = singleData.avatarImg
+            if let sd_name = singleData.name{
+                userLabel.text = sd_name
+            }
+            if let sd_image = singleData.image{
+                snapshot.image = sd_image
+            }
+            if let sd_caption = singleData.caption{
+                captionLabel.text = sd_caption
+            }
+            if let sd_likes_count = singleData.likesCount{
+                likesCount = sd_likes_count
+                likesLabel.text = String(likesCount!)
+
+            }
+            if let sd_comments_count = singleData.commentsCount{
+                commentsCount = sd_comments_count
+                commentsLabel.text = String(commentsCount!)
+            }
+            if let sd_avatar = singleData.avatarImg{
+                avatar.image = sd_avatar
+            }
         }
     }
     
@@ -73,18 +66,11 @@ class PhotoTableViewCell: UITableViewCell {
         }
     }
     
-    var profileObject: PFObject?{
-        didSet{
-            //setAvatarImage.loadAvatar(profileObject!, toSetImage: avatar)
-        }
-    }
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("Potato test")
-        //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "settingAvatar:", name: "SetCellAvatarNotification", object: nil)
-        // Initialization code
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -92,16 +78,5 @@ class PhotoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func settingAvatar(notification: NSNotification){
-        print("setting avatar fired")
-        let userInfo = notification.userInfo!["Profile"] as! [PFObject]
-        if(userInfo.count > 0){
-            profileObject = userInfo[0]
-        }
-    }
-    
- 
 
-    
 }
