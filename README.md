@@ -102,8 +102,7 @@ Describe any challenges encountered while building the app.
 - [x] Moved Post button to a more reasonable location in the imageViewController so keyboard doesn't get in the way.
 - [x] Added alerts for error messages with initial login screen
 - [x] Safer methods of unwrapping. changing from force unwrap -> if let
-- [ ] Interactive View that displays current user, user information and avatar. Can drag said information and objects within the panel.
-(Currently incomplete *)
+- [ ] Interactive View that displays current user, user information and avatar alongside the main data feed. Can drag said information and objects within the panel.(Currently incomplete *)
 
 Gif of P1.0 Changes
 
