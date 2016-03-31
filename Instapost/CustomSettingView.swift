@@ -68,18 +68,82 @@ class CustomSettingView: UIView {
     }
     
     
-    @IBAction func avatarPanned(sender: UIPanGestureRecognizer) {
+    func midCoordinates(inpoint: CGPoint, inObject: AnyObject)-> CGPoint{
+        //--------------------------------------------------------
+        // Make sure we stay within the bounds of the parent view
+        //--------------------------------------------------------
+        //Taken from http://stackoverflow.com/questions/9314045/dragging-a-specific-uiimageview and translated to swift and this portion
+        var returnpoint = inpoint
+        
+        
+        let midPointX = CGRectGetMidX(inObject.bounds)
+        // If too far right...
+        if (returnpoint.x > inObject.superview!!.bounds.size.width  - midPointX){
+            returnpoint.x = inObject.superview!!.bounds.size.width - midPointX
+        }
+        else if (returnpoint.x < midPointX){  // If too far left...
+            returnpoint.x = midPointX
+        }
+        
+        let midPointY = CGRectGetMidY(inObject.bounds)
+        // If too far down...
+        if (returnpoint.y > inObject.superview!!.bounds.size.height  - midPointY){
+            returnpoint.y = inObject.superview!!.bounds.size.height - midPointY
+        }
+        else if (returnpoint.y < midPointY){  // If too far up...
+            returnpoint.y = midPointY
+        }
+        
+        // Set new center location
+        //self.center = newPoint Moved to animate with duration
+        return returnpoint
+    }
+    
+    @IBAction func avatarPanned(panGestureRecognizer: UIPanGestureRecognizer) {
+        let point = panGestureRecognizer.locationInView(self.contentView)
+        if panGestureRecognizer.state == UIGestureRecognizerState.Began {
+            print("Began")
+        } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
+            let newPoint = midCoordinates(point, inObject: avatarView)
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                self.avatarView.center = newPoint
+            })
+        }else if panGestureRecognizer.state == UIGestureRecognizerState.Ended{
+            print("Ended")
+        }
     }
     
     
     
     
-    @IBAction func usernamePanned(sender: UIPanGestureRecognizer) {
+    @IBAction func usernamePanned(panGestureRecognizer: UIPanGestureRecognizer) {
+        let point = panGestureRecognizer.locationInView(self.contentView)
+        if panGestureRecognizer.state == UIGestureRecognizerState.Began {
+            print("Began")
+        } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
+            let newPoint = midCoordinates(point, inObject: usernameLabel)
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                self.usernameLabel.center = newPoint
+            })
+        }else if panGestureRecognizer.state == UIGestureRecognizerState.Ended{
+            print("Ended")
+        }
     }
     
     
     
-    @IBAction func birthdatePanned(sender: AnyObject) {
+    @IBAction func birthdatePanned(panGestureRecognizer: AnyObject) {
+        let point = panGestureRecognizer.locationInView(self.contentView)
+        if panGestureRecognizer.state == UIGestureRecognizerState.Began {
+            print("Began")
+        } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
+            let newPoint = midCoordinates(point, inObject: birthdateLabel)
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                self.birthdateLabel.center = newPoint
+            })
+        }else if panGestureRecognizer.state == UIGestureRecognizerState.Ended{
+            print("Ended")
+        }
     }
     
 }

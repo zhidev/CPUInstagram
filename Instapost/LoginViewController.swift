@@ -76,7 +76,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 newUser.signUpInBackgroundWithBlock({ (success: Bool, error: NSError?)-> Void in
                     print(newUser)
                     
-                    if error != nil{
+                    if success{
                         print("Created a user")
                         print(newUser)
                         self.performSegueWithIdentifier("loginSegue", sender: self)

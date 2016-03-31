@@ -15,9 +15,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var tableView: UITableView!
     
     
-    @IBOutlet var customView: CustomSettingView!
-    @IBOutlet var customViewTapGesture: UITapGestureRecognizer!
     
+    
+    var customViewWhenOpen: CGRect!
+    var customViewWhenClosed: CGRect!
+    var trueForOpenFalseForClosed = false
+    var xtranslation: CGFloat!
+    
+    var customView: CustomSettingView!
     
     
     var refreshControl: UIRefreshControl!
@@ -42,18 +47,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let HeaderViewIdentifier = "TableViewHeader"
     let singleton = ParseUserData.sharedInstance
     
-    var viewXWhenOpen: CGFloat!
-    var viewXWhenClosed:  CGFloat!
-    var viewStateOpen: Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         singleton.populateData()
-        
-        viewXWhenOpen = customView.center.x
-        viewXWhenClosed = CGFloat(0)
-        customView.center = CGPoint(x: viewXWhenClosed , y: customView.center.y)
-
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
@@ -61,8 +58,27 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "createSortedData:", name: "SortingNotification", object: nil)
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
-        
         tableView.addSubview(refreshControl)
+        
+        
+        customViewWhenOpen = CGRectMake(0, 0, self.view.frame.size.width/2.5, self.view.frame.size.height)
+        customViewWhenClosed = CGRectMake(-self.view.frame.size.width/2.5 + 15, 0, self.view.frame.size.width/2.5, self.view.frame.size.height)
+        xtranslation = -self.view.frame.size.width/2.5 + 15
+        
+        customView = CustomSettingView(frame: customViewWhenClosed)
+        //customView.imageContent.image = UIImage(named: "gradient")
+        customView.userInteractionEnabled = true
+        
+        view.addSubview(customView)
+        trueForOpenFalseForClosed = false
+        
+        
+        //print(testView.frame)
+        let TapGesture = UITapGestureRecognizer(target: self, action: "contentViewTapped:")
+        customView.addGestureRecognizer(TapGesture)
+
+        
+        
         
     }
     
@@ -199,10 +215,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("SortedData Caption: \(userInfo.caption)")
         dataCount!++
     }
-    @IBAction func contentViewTapped(sender: UITapGestureRecognizer) {
+    
+    func contentViewTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        print("tapped")
+        UIView.animateWithDuration(1.2) { () -> Void in
+            //self.testView.center = CGPoint(x: self.testView.center.x + 200, y: self.testView.center.y+300)
+            if( self.trueForOpenFalseForClosed){ // currentlyOpen
+                self.customView.transform = CGAffineTransformMakeTranslation(0, 0)
+                //self.testView.frame = self.customViewWhenClosed
+                self.trueForOpenFalseForClosed = false
+            }else{ //CurrentlyClosed
+                self.customView.transform = CGAffineTransformMakeTranslation(self.view.frame.size.width/2.5 - 15, 0)
+                //self.testView.frame = self.customViewWhenOpen
+                self.trueForOpenFalseForClosed = true
+            }
+        }
         NSNotificationCenter.defaultCenter().postNotificationName("CustomViewNotification", object: self, userInfo: nil)
-        
-
     }
     
 }
