@@ -118,6 +118,6 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 - [x] Interactive View that displays current user, user information and avatar alongside the main data feed. Can drag said information and objects within the panel. From above done. Short gif of said function. Used within a xib so the view is reusable. 
 
 
-![walkthrough](Instapostv1.5.gif)
+![walkthrough](InstapostP1.5.gif)
 
 
