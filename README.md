@@ -103,7 +103,6 @@ Describe any challenges encountered while building the app.
 - [x] Added alerts for error messages with initial login screen
 - [x] Safer methods of unwrapping. changing from force unwrap -> if let
 - [ ] Interactive View that displays current user, user information and avatar alongside the main data feed. Can drag said information and objects within the panel.(Currently incomplete *)
-- [ ] Retain same view throughout the app once done with above storyboard.
 
 Gif of P1.0 Changes
 
@@ -112,3 +111,13 @@ Gif of P1.0 Changes
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 * Constraints getting in the way of moving view around (in super view controller not in reusable model file)
+
+[P1.5]
+
+
+- [x] Interactive View that displays current user, user information and avatar alongside the main data feed. Can drag said information and objects within the panel. From above done. Short gif of said function. Used within a xib so the view is reusable. 
+
+
+![walkthrough](Instapostv1.5.gif)
+
+
